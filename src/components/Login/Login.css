@@ -19,7 +19,7 @@
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 300px;
+    width: 350px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
@@ -86,12 +86,13 @@
 
   .forgot{
     color : rgb(29, 116, 198);
+    display: inline-block;
   }
+.signup{
+  padding-left: 120px;
+}
 
-  .no-account{
-    margin-left : 150px;
-  
-  }
+
   
 
 

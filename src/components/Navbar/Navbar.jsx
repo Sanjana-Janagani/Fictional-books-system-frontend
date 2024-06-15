@@ -5,7 +5,7 @@ import menu_icon from '../../assets/images/menu_icon.png'
 import { Link } from 'react-scroll';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-
+import { Route, Routes, NavLink } from 'react-router-dom';
 const Navbar = () => {
   const[sticky, setSticky] = useState(false);
 
@@ -35,14 +35,26 @@ const Navbar = () => {
         <ul className={menu ? '' : 'hide-menu'}>
             <li><Link to='hero' smooth = {true} offset={0} duration = {500}>Home</Link></li>
             <li><Link to='show' smooth = {true} offset={-260} duration = {500}>Library</Link></li>
-            <li onClick={openLoginModal}>Login</li>
-            <li onClick={openRegisterModal}>Register</li>
+            <li>
+            <NavLink to="login">Login</NavLink></li>
+            <li>
+            <NavLink to="register">Register</NavLink>
+            </li>
             <li><Link to='about' smooth = {true} offset={-200} duration = {500}>About Us</Link></li>
             <li><Link to='contact' smooth = {true} offset={-260} duration = {500} className='btn'>Contact Us</Link></li>
         </ul>
         <img src = {menu_icon} alt='' className='menu-icon' onClick = {toggleMenu}/>
-        {isLoginOpen && <Login closeModal={closeLoginModal} />}
-        {isRegisterOpen && <Register closeModal={closeRegisterModal} />}
+        
+        <Routes>
+        <Route
+          path="login"
+          element={<Login closeModal={closeLoginModal} />}
+        ></Route>
+        <Route
+          path="register"
+          element={<Register closeModal={closeRegisterModal} />}
+        ></Route>
+      </Routes>
     </nav>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { NavLink } from 'react-router-dom';
+import './Register.css';
 function Register({ closeModal }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -14,7 +15,8 @@ function Register({ closeModal }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <span className="close" onClick={closeModal}>&times;</span>
+        <span className="close">
+        <NavLink to ="/">&times;</NavLink></span>
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="regUsername">Username:</label><br />
@@ -23,24 +25,27 @@ function Register({ closeModal }) {
             id="regUsername"
             name="regUsername"
             value={username}
+            placeholder='Enter your User Name'
             onChange={(e) => setUsername(e.target.value)}
-          /><br />
+          />
           <label htmlFor="regEmail">Email:</label><br />
           <input
             type="email"
             id="regEmail"
             name="regEmail"
             value={email}
+            placeholder='Enter your email address'
             onChange={(e) => setEmail(e.target.value)}
-          /><br />
+          />
           <label htmlFor="regPassword">Password:</label><br />
           <input
             type="password"
             id="regPassword"
             name="regPassword"
             value={password}
+            placeholder='Enter password'
             onChange={(e) => setPassword(e.target.value)}
-          /><br /><br />
+          /><br />
           <input type="submit" value="Submit" />
         </form>
       </div>
