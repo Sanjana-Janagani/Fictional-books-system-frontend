@@ -42,7 +42,7 @@
   h2 {
     text-align: center;
     color: #1a7bb8;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     cursor: pointer;
   }
   
@@ -84,16 +84,34 @@
     background-color: #0056b3;
   }
 
-  .forgot{
-    color : rgb(29, 116, 198);
+  .signup{
+    color : rgba(29, 116, 198, 0.934);
     display: inline-block;
+    padding-left: 40px;
+    
   }
-.signup{
-  padding-left: 120px;
+  .role{
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+.link{
+  color:#1a7bb8;
+  cursor: pointer;
+  font-size: 16px;
+}
+button {
+  outline: none; 
+  border: none; 
+  background: none; 
+  padding: 0;
+}
+
+button:focus {
+  outline: none; 
 }
 
 
-  
-
-
-  

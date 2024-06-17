@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import './Login.css'
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Login({ closeModal }) {
-  const [username, setUsername] = useState('');
+function Login({ closeModal, toggleForm }) {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('reader');
+  const navigate = useNavigate();
 
   const handleLoginClick = (e) => {
     e.preventDefault();
     // Handle login logic here
     closeModal();
   };
+
+  const handleSignUpClick = () => {
+    navigate('/register');
+  };
+
 
   return (
     <div className="modal">
@@ -22,11 +30,11 @@ function Login({ closeModal }) {
           <label htmlFor="username">Email :</label><br />
           <input
             type="text"
-            id="username"
-            name="username"
-            value={username}
+            id="email"
+            name="email"
+            value={email}
             placeholder='Enter your email address'
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="password">Password :</label><br />
           <input
@@ -37,10 +45,30 @@ function Login({ closeModal }) {
             placeholder='Enter your password'
             onChange={(e) => setPassword(e.target.value)}
           /><br />
+          <span className='role'>
+          <label>Role :</label><br />
+          <input
+            type="radio"
+            id="reader"
+            name="role"
+            value="reader"
+            checked={role === 'reader'}
+            onChange={(e) => setRole(e.target.value)}
+          />
+          <label htmlFor="reader">Reader</label><br />
+          <input
+            type="radio"
+            id="author"
+            name="role"
+            value="author"
+            checked={role === 'author'}
+            onChange={(e) => setRole(e.target.value)}
+          />
+          <label htmlFor="author">Author</label><br /><br />
+          </span>
           <input type="submit" value="Login" />
         </form>
-        <p className='forgot'>Forgot Password?</p>
-        <p className='forgot signup'><b><u>Sign Up</u></b></p>
+        <p className='signup'>Don't have an account? <button className="link" onClick={handleSignUpClick}><u>Sign Up</u></button></p>
       </div>
     </div>
   );

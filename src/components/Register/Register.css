@@ -11,7 +11,6 @@
   overflow: auto;
   background-color: rgba(146, 196, 203, 0.478);
   padding-top: 60px;
-
 }
 
 .modal-content {
@@ -19,7 +18,7 @@
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 350px;
+  width: 380px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
@@ -42,7 +41,7 @@
 h2 {
   text-align: center;
   color: #1a7bb8;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   cursor: pointer;
 }
 
@@ -57,6 +56,8 @@ label {
   font-size: 16px;
   padding-left: 0;
   color: rgb(15, 17, 17);
+  font-family: 'Times New Roman', Times, serif;
+
 }
 
 input[type="text"],
@@ -66,6 +67,7 @@ input[type="password"] {
   margin: 5px;
   border: 1px solid #ccccccf6;
   border-radius: 4px;
+  margin-bottom: 1px;
 }
 
 input[type="email"]{
@@ -74,6 +76,7 @@ input[type="email"]{
   margin: 5px;
   border: 1px solid #ccccccf6;
   border-radius: 4px;
+  margin-bottom: 1px;
 }
 
 input[type="submit"] {
@@ -92,15 +95,33 @@ input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.forgot{
-  color : rgb(29, 116, 198);
+.signin{
+  color : rgba(29, 116, 198, 0.959);
   display: inline-block;
-}
-.signup{
-padding-left: 120px;
+  padding-left: 40px;
 }
 
+.roles{
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: first baseline;
+  font-family: 'Times New Roman', Times, serif;
+}
 
+.link{
+  color:#1a7bb8;
+  cursor: pointer;
+  font-size: 16px;
+}
+button {
+  outline: none; 
+  border: none; 
+  background: none; 
+  padding: 0;
+}
 
-
+button:focus {
+  outline: none; 
+}
 
