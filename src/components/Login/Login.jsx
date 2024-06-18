@@ -9,15 +9,21 @@ function Login({ closeModal, toggleForm }) {
   const [role, setRole] = useState('reader');
   const navigate = useNavigate();
 
-  const handleLoginClick = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    closeModal();
-  };
+ 
+  // const handleLogin = async (credentials) => {
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/login', credentials);
+  //     console.log(response.data.message);
+  //     closeLoginModal();
+  //   } catch (error) {
+  //     console.error('Error logging in:', error);
+  //   }
+  // };
 
   const handleSignUpClick = () => {
     navigate('/register');
   };
+
 
 
   return (
@@ -26,7 +32,7 @@ function Login({ closeModal, toggleForm }) {
         <span className="close">
           <NavLink to ="/">&times;</NavLink></span>
         <h2>Login</h2>
-        <form onSubmit={handleLoginClick}>
+        <form onSubmit={handleLogin}>
           <label htmlFor="username">Email :</label><br />
           <input
             type="text"
@@ -66,7 +72,7 @@ function Login({ closeModal, toggleForm }) {
           />
           <label htmlFor="author">Author</label><br /><br />
           </span>
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login"/>
         </form>
         <p className='signup'>Don't have an account? <button className="link" onClick={handleSignUpClick}><u>Sign Up</u></button></p>
       </div>

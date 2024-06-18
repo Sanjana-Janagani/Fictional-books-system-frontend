@@ -4,18 +4,36 @@ import './Register.css';
 import { useNavigate } from 'react-router-dom';
 
 
-function Register({ closeModal , toggleForm }) {
+function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('reader');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle registration logic here
-    closeModal();
-  };
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const response = await fetch('/register', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({ username, email, password, role })
+  //   });
+  //   const result = await response.json();
+  //   setMessage(result.message);
+  // };
+
+  // const handleRegister = async (userData) => {
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/register', userData);
+  //     console.log(response.data.message);
+  //     closeRegisterModal();
+  //   } catch (error) {
+  //     console.error('Error registering:', error);
+  //   }
+  // };
 
   const handleSignInClick = () => {
     navigate('/login');
@@ -27,7 +45,7 @@ function Register({ closeModal , toggleForm }) {
         <span className="close">
         <NavLink to ="/">&times;</NavLink></span>
         <h2>Register</h2>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label htmlFor="regUsername">Username :</label><br />
           <input
             type="text"
@@ -76,7 +94,7 @@ function Register({ closeModal , toggleForm }) {
           />
           <label htmlFor="author">Author</label><br /><br />
           </span>
-         <input type="submit" value="Submit" />
+         <input type="submit" value="Submit" onSubmit={handleRegister}/>
         </form>
         <p className='signin'>Already have an account? <button className="link" onClick={handleSignInClick}><u>Sign In</u></button></p>
       </div>

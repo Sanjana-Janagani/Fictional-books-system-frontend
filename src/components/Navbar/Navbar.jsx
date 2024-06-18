@@ -6,20 +6,12 @@ import { Link } from 'react-scroll';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import { Route, Routes, NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 const Navbar = () => {
   const[sticky, setSticky] = useState(false);
 
-  useEffect(()=>{
-    window.addEventListener('scroll',()=>{
-      window.scrollY > 70 ? setSticky(true) : setSticky(false)
-    })
-  });
-
   const [menu, setMenu] = useState(false)
-  const toggleMenu = () =>{
-    menu? setMenu(false) : setMenu(true)
-  }
-
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
@@ -28,6 +20,17 @@ const Navbar = () => {
 
   const openRegisterModal = () => setIsRegisterOpen(true);
   const closeRegisterModal = () => setIsRegisterOpen(false);
+
+  useEffect(()=>{
+    window.addEventListener('scroll',()=>{
+      window.scrollY > 70 ? setSticky(true) : setSticky(false)
+    })
+  });
+
+  const toggleMenu = () =>{
+    menu? setMenu(false) : setMenu(true);
+  };
+
 
   return (
     <nav className ={`container ${sticky? 'dark-nav': ''}`}>
@@ -48,11 +51,11 @@ const Navbar = () => {
         <Routes>
         <Route
           path="login"
-          element={<Login closeModal={closeLoginModal} />}
+          element={<Login/>}
         ></Route>
         <Route
           path="register"
-          element={<Register closeModal={closeRegisterModal} />}
+          element={<Register/>}
         ></Route>
       </Routes>
     </nav>
