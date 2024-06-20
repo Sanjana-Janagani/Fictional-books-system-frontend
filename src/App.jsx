@@ -9,27 +9,30 @@ import Tests from './components/Tests/Tests'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import VideoPlayer from './components/VideoPlayer/VideoPlayer'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [playState, setPlayState] = useState(false);
 
   return (
     <div>
-      <Navbar/>
-      <Hero/>
+      <ToastContainer />
+      <Navbar />
+      <Hero />
       <div className='container'>
-        <Title title='Current Trends' subtitle="Recent Trends are shown below"/>
-        <Books/>
-        <Title title='Our Famous Collections' subtitle="Pick your favourite one"/>
-        <Library_sec/>
-        <About_section setPlayState = {setPlayState}/>
-        <Title title='Users' subtitle="Their Reviews"/>
-        <Tests/>
-        <Title title='Contact Us' subtitle="Let's connect"/>
-        <Contact/>
-        <Footer/>
+        <Title title='Current Trends' subtitle="Recent Trends are shown below" />
+        <Books />
+        <Title title='Our Famous Collections' subtitle="Pick your favourite one" />
+        <Library_sec />
+        <About_section setPlayState={setPlayState} />
+        <Title title='Users' subtitle="Their Reviews" />
+        <Tests />
+        <Title title='Contact Us' subtitle="Let's connect" />
+        <Contact />
+        <Footer />
       </div>
-      <VideoPlayer playState = {playState} setPlayState={setPlayState}/>
+      <VideoPlayer playState={playState} setPlayState={setPlayState} />
     </div>
   )
 }
