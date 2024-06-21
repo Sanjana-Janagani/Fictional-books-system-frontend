@@ -1,8 +1,6 @@
 import { asyncThunkCreator, createAsyncThunk } from "@reduxjs/toolkit";
 import API from "../services/API";
 import { toast } from 'react-toastify';
-import ResponsiveDrawer from "../views/ResponsiveDrawer";
-import { useNavigate } from "react-router-dom";
 export const userLogin = createAsyncThunk(
     'auth/login',
     async ({ email, password, role }, { rejectWithValue }) => {
@@ -10,10 +8,8 @@ export const userLogin = createAsyncThunk(
             const { data } = await API.post('http://localhost:8000/auth/login', { email, password, role });
             //store token
             if (data.success) {
-                naviage = useNavigate();
                 localStorage.setItem('token', data.token);
                 toast.success(data.message);
-                navigate('/dashboard');
             }
             return data;
         } catch (error) {

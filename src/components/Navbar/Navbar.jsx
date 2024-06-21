@@ -6,8 +6,8 @@ import { Link } from 'react-scroll';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import ResponsiveDrawer from '../../views/ResponsiveDrawer';
 import ProtectedRoutes from '../../Routes/ProtectedRoutes';
+import ResponsiveDrawer from '../../views/ResponsiveDrawer';
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -52,11 +52,6 @@ const Navbar = () => {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        {/* <Route path="dashboard" element={
-          <ProtectedRoutes>
-            <ResponsiveDrawer />
-          </ProtectedRoutes> }
-        /> */}
       </Routes>
     </nav>
   )
